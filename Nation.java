@@ -17,11 +17,12 @@ public class Nation
 
     public Nation(String name, int lifePoints)
     {
+        int NUMBER_OF_TRIBES = 5;
         nationName = name;
         nationLifePoints = lifePoints;
-        for(int i = 0; i < 5; i++)
+        for(int i = 0; i < NUMBER_OF_TRIBES; i++)
         {
-            this.tribes.add(new Tribe(nationName, "Tribe" + i, nationLifePoints / 5));
+            this.tribes.add(new Tribe(nationName, "Tribe" + i, nationLifePoints / NUMBER_OF_TRIBES));
         }
         population.addAll(getNationPopulation());
         livingPopulation.addAll(population);

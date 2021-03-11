@@ -18,14 +18,15 @@ public class Tribe
 
     public Tribe(String nation, String tribe, int lifePoints)
     {
+        int NUMBER_OF_PEOPLE = 6;
         nationName = nation;
         tribeName = tribe;
         tribeLifePoints = lifePoints;
-        for(int i = 0; i < 5; i++)
+        for(int i = 0; i < NUMBER_OF_PEOPLE; i++)
             if(i % 2 == 0)
-                members.add(new SchaperWarrior(nationName, tribeName, tribeLifePoints / 5));
+                members.add(new SchaperWarrior(nationName, tribeName, tribeLifePoints / NUMBER_OF_PEOPLE));
             else
-                members.add(new SchaperWizard(nationName, tribeName, tribeLifePoints / 5));
+                members.add(new SchaperWizard(nationName, tribeName, tribeLifePoints / NUMBER_OF_PEOPLE));
         for(int i = 0; i < members.size(); i++)
             livingMembers.addAll(members);
     }
