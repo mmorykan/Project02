@@ -1,8 +1,9 @@
 package Project02;
-import java.util.Collection;
-import java.util.Collections;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.util.*;
 import java.io.StringBufferInputStream;
-import java.util.ArrayList;
+
 import Project02.People;
 import Project02.PeopleType;
 import Project02.SchaperWarrior;
@@ -16,17 +17,30 @@ public class Tribe
     private ArrayList<People> members = new ArrayList<>();
     private ArrayList<People> livingMembers = new ArrayList<>();
 
-    public Tribe(String nation, String tribe, int lifePoints)
-    {
+    public Tribe(String nation, String tribe, int lifePoints) {
         int NUMBER_OF_PEOPLE = 6;
         nationName = nation;
         tribeName = tribe;
         tribeLifePoints = lifePoints;
-        for(int i = 0; i < NUMBER_OF_PEOPLE; i++)
-            if(i % 2 == 0)
-                members.add(new SchaperWarrior(nationName, tribeName, tribeLifePoints / NUMBER_OF_PEOPLE));
-            else
-                members.add(new SchaperWizard(nationName, tribeName, tribeLifePoints / NUMBER_OF_PEOPLE));
+        List<Class<? extends People>> peopleTypes = Arrays.asList(SchaperWarrior.class, SchaperWizard.class);
+
+        Random r = new Random();
+        members.add(new SchaperWarrior(nationName, tribeName, tribeLifePoints / NUMBER_OF_PEOPLE));
+        members.add(new SchaperWizard(nationName, tribeName, tribeLifePoints / NUMBER_OF_PEOPLE));
+
+        int randomNum = 0;
+        Constructor<?> ctor;
+        for(int i = 0; i < 4; i++) {
+            randomNum = r.nextInt(2);
+            ctor = peopleTypes.get(randomNum).getConstructors()[0];
+            try {
+                members.add((People) ctor.newInstance(nationName, tribeName, tribeLifePoints / NUMBER_OF_PEOPLE));
+            } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
+                e.printStackTrace();
+            }
+        }
+
+
         for(int i = 0; i < members.size(); i++)
             livingMembers.addAll(members);
     }
