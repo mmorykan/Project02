@@ -18,10 +18,12 @@ public class Tribe
     private ArrayList<People> livingMembers = new ArrayList<>();
 
     public Tribe(String nation, String tribe, int lifePoints) {
-        int NUMBER_OF_PEOPLE = 6;
+        final int NUMBER_OF_PEOPLE = 6;
         nationName = nation;
         tribeName = tribe;
         tribeLifePoints = lifePoints;
+
+        // List of all People Types
         List<Class<? extends People>> peopleTypes = Arrays.asList(SchaperWarrior.class, SchaperWizard.class);
 
         Random r = new Random();
@@ -29,14 +31,15 @@ public class Tribe
         members.add(new SchaperWizard(nationName, tribeName, tribeLifePoints / NUMBER_OF_PEOPLE));
 
         int randomNum = 0;
-        Constructor<?> ctor;
+        Constructor<?> constructor;
         for(int i = 0; i < 4; i++) {
-            randomNum = r.nextInt(2);
-            ctor = peopleTypes.get(randomNum).getConstructors()[0];
+            randomNum = r.nextInt(peopleTypes.size());  // Generate random index of the list
+            constructor = peopleTypes.get(randomNum).getConstructors()[0];  // Get constructor of class at index
             try {
-                members.add((People) ctor.newInstance(nationName, tribeName, tribeLifePoints / NUMBER_OF_PEOPLE));
+                members.add((People) constructor.newInstance(nationName, tribeName,
+                        tribeLifePoints / NUMBER_OF_PEOPLE));
             } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
-                e.printStackTrace();
+                e.printStackTrace();  // required to catch Exceptions when using newInstance() method
             }
         }
 
