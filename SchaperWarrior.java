@@ -16,11 +16,11 @@ public class SchaperWarrior extends People
     public int encounterStrategy(People otherPerson)
     {
         int lifePoints = 0;
-        if(this.getNation() == otherPerson.getNation())
+        if(this.getNation().equals(otherPerson.getNation()))
         {
             if(otherPerson.getLifePoints() < this.getLifePoints())
             {
-                if(otherPerson.getTribe() == this.getTribe())
+                if(otherPerson.getTribe().equals(this.getTribe()))
                 {
                     lifePoints = -((this.getLifePoints() - otherPerson.getLifePoints()) / 2);
                 }
@@ -32,8 +32,7 @@ public class SchaperWarrior extends People
         }
         else
         {
-            int points;
-            points = this.getLifePoints() - otherPerson.getLifePoints();
+            int points = this.getLifePoints() - otherPerson.getLifePoints();
             if (points > 0)
             {
                 lifePoints = otherPerson.getLifePoints();

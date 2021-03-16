@@ -14,7 +14,7 @@ public class SchaperWizard extends Project02.People
 
     public int encounterStrategy(Project02.People otherPerson) {
         int lifePoints = 0;
-        if (this.getNation() != otherPerson.getNation())
+        if (!this.getNation().equals(otherPerson.getNation()))
         {
             if (otherPerson.getLifePoints() < this.getLifePoints())
             {
@@ -33,10 +33,6 @@ public class SchaperWizard extends Project02.People
             if (otherPerson.getLifePoints() < this.getLifePoints()) // heal a friend
             {
                 lifePoints = (int) (this.getLifePoints() - otherPerson.getLifePoints() / 2);
-            }
-            else
-            {
-                lifePoints = 0;
             }
         }
         return lifePoints;

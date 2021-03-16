@@ -63,15 +63,11 @@ public abstract class People
         myLifePoints += points;
     }
 
-
     public abstract int encounterStrategy(People otherPerson);
-
-
 
     public String toString()
     {
-        String result = new String( myNation + "\t" +  myTribe + "\t" + me + "\t" + myDescription + "\t" + myLifePoints);
-        return result;
+        return myNation + "\t" +  myTribe + "\t" + me + "\t" + myDescription + "\t" + myLifePoints;
     }
 }
 

@@ -11,41 +11,50 @@ import Project02.SchaperWizard;
 
 public class Tribe
 {
+    private final int NUMBER_OF_PEOPLE = 6;
     private String nationName;
     private String tribeName;
     private int tribeLifePoints;
     private ArrayList<People> members = new ArrayList<>();
     private ArrayList<People> livingMembers = new ArrayList<>();
+    private Random random;
 
     public Tribe(String nation, String tribe, int lifePoints) {
-        final int NUMBER_OF_PEOPLE = 6;
         nationName = nation;
         tribeName = tribe;
         tribeLifePoints = lifePoints;
+        random = new Random();
 
-        // List of all People Types
-        List<Class<? extends People>> peopleTypes = Arrays.asList(SchaperWarrior.class, SchaperWizard.class);
+        /* Add one random warrior, wizard, and healer */
+        addMember(Arrays.asList(SchaperWarrior.class, RichieWarrior.class));
+        addMember(Arrays.asList(SchaperWizard.class, RichieWizard.class));
+        addMember(Arrays.asList(MarkHealer.class));
 
-        Random r = new Random();
-        members.add(new SchaperWarrior(nationName, tribeName, tribeLifePoints / NUMBER_OF_PEOPLE));
-        members.add(new SchaperWizard(nationName, tribeName, tribeLifePoints / NUMBER_OF_PEOPLE));
+        /* List of all people types */
+        List<Class<? extends People>> peopleTypes = Arrays.asList(SchaperWarrior.class, SchaperWizard.class,
+                MarkHealer.class, RichieWarrior.class, RichieWizard.class);
 
-        int randomNum = 0;
-        Constructor<?> constructor;
-        for(int i = 0; i < 4; i++) {
-            randomNum = r.nextInt(peopleTypes.size());  // Generate random index of the list
-            constructor = peopleTypes.get(randomNum).getConstructors()[0];  // Get constructor of class at index
-            try {
-                members.add((People) constructor.newInstance(nationName, tribeName,
-                        tribeLifePoints / NUMBER_OF_PEOPLE));
-            } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
-                e.printStackTrace();  // required to catch Exceptions when using newInstance() method
-            }
-        }
-
+        /* Add 3 more people to the tribe since we */
+        for(int i = 0; i < 3; i++)
+            addMember(peopleTypes);
 
         for(int i = 0; i < members.size(); i++)
             livingMembers.addAll(members);
+    }
+
+    /**
+     * Add a random member to the tribe from a list of peopleTypes
+     * @param types The list of peopleTypes
+     */
+    private void addMember(List<Class<? extends People>> types) {
+        int randomNum = random.nextInt(types.size());  // Generate random index of the list
+        Constructor<?> constructor = types.get(randomNum).getConstructors()[0];  // Get constructor of class at index
+        try {
+            members.add((People) constructor.newInstance(nationName, tribeName,
+                    tribeLifePoints / NUMBER_OF_PEOPLE));
+        } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
+            e.printStackTrace();  // required to catch Exceptions when using newInstance() method
+        }
     }
 
     public ArrayList<People> getLivingTribeMembers()
@@ -82,7 +91,6 @@ public class Tribe
     }
 */
 
-
     public int getTribeSize()
     {
         return livingMembers.size();
@@ -92,7 +100,6 @@ public class Tribe
     {
         return (tribeLifePoints > 0);
     }
-
 
     public int getTribeLifePoints()
     {
