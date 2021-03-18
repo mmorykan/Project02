@@ -8,6 +8,15 @@ import Project02.People;
 import Project02.PeopleType;
 import Project02.SchaperWarrior;
 import Project02.SchaperWizard;
+import Project02.KyleWarrior;
+import Project02.KyleWizard;
+import Project02.KyleHealer;
+import Project02.MarkWarrior;
+import Project02.MarkWizard;
+import Project02.MarkHealer;
+import Project02.RichieWarrior;
+import Project02.RichieWizard;
+import Project02.RichieHealer;
 
 public class Tribe
 {

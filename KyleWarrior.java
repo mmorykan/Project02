@@ -6,7 +6,7 @@ import Project02.PeopleType;
 
 public class KyleWarrior extends People {
 
-    public KyleWarrior(String nation, String tribe, int lifePoints) {
+    public KyleWarrior(String nation, String tribe, PeopleType person, int lifePoints) {
         super(nation, tribe, PeopleType.warrior, lifePoints);
         myDescription = "\tKyle Warrior";
     }
