@@ -16,27 +16,12 @@ public class RichieWarrior extends People
     }
 
 
-    public int encounterStrategy(People otherPerson)
-    {
-        int lifePoints = 0;
-        if(this.getNation() != otherPerson.getNation())
-        {
-            lifePoints = r.nextInt(100);
-        }
-        else
-        {
-            int points;
-            points = this.getLifePoints() - otherPerson.getLifePoints();
-            if (points > 0)
-            {
-                lifePoints = otherPerson.getLifePoints();
-            }
-            else
-            {
-                lifePoints = this.getLifePoints();
-            }
-        }
-        return lifePoints;
+
+    public int encounterUgly(People otherPerson) {
+        return r.nextInt(100);
     }
 
+    public int encounterFriendly(People otherPerson) {
+        return 0;
+    }
 }
