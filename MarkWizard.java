@@ -1,5 +1,9 @@
 package Project02;
 
+import Project02.People;
+import Project02.PeopleType;
+
+
 public class MarkWizard extends People {
 
     public MarkWizard(String nation, String tribe, int lifePoints) {

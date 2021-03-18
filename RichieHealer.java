@@ -34,12 +34,10 @@ public class RichieHealer extends Project02.People
         return lifePoints;
     }
 
-    @Override
     public int encounterUgly(People otherPerson) {
         return 0;
     }
 
-    @Override
     public int encounterFriendly(People otherPerson) {
         int lifePoints = 0;
         if (otherPerson.getLifePoints() < this.getLifePoints()) // heal a friend
