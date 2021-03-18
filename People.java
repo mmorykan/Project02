@@ -63,7 +63,9 @@ public abstract class People
         myLifePoints += points;
     }
 
-    public abstract int encounterStrategy(People otherPerson);
+    public abstract int encounterUgly(People otherPerson);
+
+    public abstract int encounterFriendly(People otherPerson);
 
     public String toString()
     {

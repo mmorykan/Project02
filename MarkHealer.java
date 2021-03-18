@@ -8,13 +8,13 @@ public class MarkHealer extends People {
         myDescription = "\tMark Healer";
     }
 
-    @Override
-    public int encounterStrategy(People otherPerson) {
-        int lifePoints = 0;
-        if (this.getNation().equals(otherPerson.getNation())) {
-            lifePoints = this.getLifePoints();
-            lifePoints = otherPerson.getType() == PeopleType.warrior ? -lifePoints / 2 : -lifePoints / 3;
-        }
+    public int encounterUgly(People otherPerson) {
+        return 0;
+    }
+
+    public int encounterFriendly(People otherPerson) {
+        int lifePoints = this.getLifePoints();
+        lifePoints = otherPerson.getType() == PeopleType.warrior ? -lifePoints / 2 : -lifePoints / 3;
         return lifePoints;
     }
 }

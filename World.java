@@ -117,12 +117,18 @@ public class World
     {
         Integer person1LifePointsToUse;
         Integer person2LifePointsToUse;
-        System.out.println("Encounter: " + worldCreatedPeople.get(person1) + worldCreatedPeople.get(person2));
+        People player1 = worldCreatedPeople.get(person1), player2 = worldCreatedPeople.get(person2);
+        System.out.println("Encounter: " + player1 + player2);
 ;
         //if lifePointsToUse is negative, then person is either running away in a hostile encounter
         // or person is giving life points to another person from same nation
-        person1LifePointsToUse = worldCreatedPeople.get(person1).encounterStrategy(worldCreatedPeople.get(person2));
-        person2LifePointsToUse = worldCreatedPeople.get(person2).encounterStrategy(worldCreatedPeople.get(person1));
+        if (player1.getNation().equals(player2.getNation())) {
+            person1LifePointsToUse = player1.encounterFriendly(player2);
+            person2LifePointsToUse = player2.encounterFriendly(player1);
+        } else {
+            person1LifePointsToUse = player1.encounterUgly(player2);
+            person2LifePointsToUse = player2.encounterUgly(player1);
+        }
 
         // amount of life points actually used is subject to a psuedo-random encounter
         Integer p1damage =  (int) (generator.nextFloat() * person1LifePointsToUse);
