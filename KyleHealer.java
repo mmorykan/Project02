@@ -7,7 +7,7 @@ import java.util.Random;
 public class KyleHealer extends People {
 
     Random r = new Random();
-    public KyleHealer(String nation, String tribe, PeopleType person, int lifePoints) {
+    public KyleHealer(String nation, String tribe, int lifePoints) {
         super(nation, tribe, PeopleType.healer, lifePoints);
         myDescription = "\tKyle Healer";
     }

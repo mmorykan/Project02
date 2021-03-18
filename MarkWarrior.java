@@ -1,26 +1,26 @@
 package Project02;
 
-import Project02.People;
-import Project02.PeopleType;
-
+import java.util.Random;
 
 public class MarkWarrior extends People {
 
 
-    public MarkWarrior(String nation, String tribe, PeopleType person, int lifePoints) {
-        super(nation, tribe, person, lifePoints);
+    public MarkWarrior(String nation, String tribe, int lifePoints) {
+        super(nation, tribe, PeopleType.warrior, lifePoints);
     }
 
     public int encounterUgly(People otherPerson) {
-        return 0;
+        Random random = new Random();
+        int lifePoints;
+        if (otherPerson.getType().equals(PeopleType.healer)) {
+            lifePoints = this.getLifePoints() + random.nextInt(this.getLifePoints());
+        } else {
+            lifePoints = this.getLifePoints();
+        }
+        return lifePoints;
     }
 
     public int encounterFriendly(People otherPerson) {
-        int lifePoints = 0;
-        if (this.getNation().equals(otherPerson.getNation())) {
-            lifePoints = this.getLifePoints();
-            lifePoints = otherPerson.getType() == PeopleType.warrior ? -lifePoints / 2 : -lifePoints / 3;
-        }
-        return lifePoints;
+        return 0;
     }
 }

@@ -8,15 +8,6 @@ import Project02.People;
 import Project02.PeopleType;
 import Project02.SchaperWarrior;
 import Project02.SchaperWizard;
-import Project02.KyleWarrior;
-import Project02.KyleWizard;
-import Project02.KyleHealer;
-import Project02.MarkWarrior;
-import Project02.MarkWizard;
-import Project02.MarkHealer;
-import Project02.RichieWarrior;
-import Project02.RichieWizard;
-import Project02.RichieHealer;
 
 public class Tribe
 {
@@ -35,13 +26,14 @@ public class Tribe
         random = new Random();
 
         /* Add one random warrior, wizard, and healer */
-        addMember(Arrays.asList(SchaperWarrior.class, RichieWarrior.class));
-        addMember(Arrays.asList(SchaperWizard.class, RichieWizard.class));
-        addMember(Arrays.asList(MarkHealer.class));
+        addMember(Arrays.asList(SchaperWarrior.class, RichieWarrior.class, MarkWarrior.class, KyleWarrior.class));
+        addMember(Arrays.asList(SchaperWizard.class, RichieWizard.class, KyleWizard.class));
+        addMember(Arrays.asList(MarkHealer.class, RichieHealer.class, KyleHealer.class));
 
         /* List of all people types */
         List<Class<? extends People>> peopleTypes = Arrays.asList(SchaperWarrior.class, SchaperWizard.class,
-                MarkHealer.class, RichieWarrior.class, RichieWizard.class);
+                MarkHealer.class, MarkWarrior.class, RichieWarrior.class, RichieWizard.class, RichieHealer.class,
+                KyleHealer.class, KyleWarrior.class, KyleWizard.class);
 
         /* Add 3 more people to the tribe since we */
         for(int i = 0; i < 3; i++)
