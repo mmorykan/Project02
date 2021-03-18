@@ -12,36 +12,33 @@ public class SchaperWarrior extends People
         myDescription = "\tSchaper Warrior";
     }
 
-
-    public int encounterStrategy(People otherPerson)
-    {
-        int lifePoints = 0;
-        if(this.getNation().equals(otherPerson.getNation()))
+    public int encounterUgly(People otherPerson) {
+        int lifePoints;
+        if (this.getLifePoints() - otherPerson.getLifePoints() > 0)
         {
-            if(otherPerson.getLifePoints() < this.getLifePoints())
-            {
-                if(otherPerson.getTribe().equals(this.getTribe()))
-                {
-                    lifePoints = -((this.getLifePoints() - otherPerson.getLifePoints()) / 2);
-                }
-                else
-                {
-                    lifePoints = -((this.getLifePoints() - otherPerson.getLifePoints()) / 4);
-                }
-            }
+            lifePoints = otherPerson.getLifePoints();
         }
         else
         {
-            int points = this.getLifePoints() - otherPerson.getLifePoints();
-            if (points > 0)
+            lifePoints = this.getLifePoints();
+        }
+        return lifePoints;
+    }
+
+    public int encounterFriendly(People otherPerson) {
+        int lifePoints = 0;
+        if(otherPerson.getLifePoints() < this.getLifePoints())
+        {
+            if(otherPerson.getTribe().equals(this.getTribe()))
             {
-                lifePoints = otherPerson.getLifePoints();
+                lifePoints = -((this.getLifePoints() - otherPerson.getLifePoints()) / 2);
             }
             else
             {
-                lifePoints = this.getLifePoints();
+                lifePoints = -((this.getLifePoints() - otherPerson.getLifePoints()) / 4);
             }
         }
+
         return lifePoints;
     }
 

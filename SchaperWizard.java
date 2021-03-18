@@ -12,29 +12,29 @@ public class SchaperWizard extends Project02.People
         myDescription = "\tSchaper Wizard";
     }
 
-    public int encounterStrategy(Project02.People otherPerson) {
+    public int encounterUgly(People otherPerson) {
         int lifePoints = 0;
-        if (!this.getNation().equals(otherPerson.getNation()))
+        if (otherPerson.getLifePoints() < this.getLifePoints())
         {
-            if (otherPerson.getLifePoints() < this.getLifePoints())
+            if (otherPerson.getType() == PeopleType.warrior) // run away
             {
-                if (otherPerson.getType() == PeopleType.warrior) // run away
-                {
-                    lifePoints = -this.getLifePoints();
-                }
-                else // attack a wizard
-                {
-                    lifePoints = (int) (this.getLifePoints()/2);
-                }
+                lifePoints = -this.getLifePoints();
+            }
+            else // attack a wizard
+            {
+                lifePoints = (int) (this.getLifePoints()/2);
             }
         }
-        else
+        return lifePoints;
+    }
+
+    public int encounterFriendly(People otherPerson) {
+        int lifePoints = 0;
+        if (otherPerson.getLifePoints() < this.getLifePoints()) // heal a friend
         {
-            if (otherPerson.getLifePoints() < this.getLifePoints()) // heal a friend
-            {
-                lifePoints = (int) (this.getLifePoints() - otherPerson.getLifePoints() / 2);
-            }
+            lifePoints = this.getLifePoints() - otherPerson.getLifePoints() / 2;
         }
+
         return lifePoints;
     }
 
