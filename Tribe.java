@@ -9,9 +9,12 @@ import Project02.PeopleType;
 import Project02.SchaperWarrior;
 import Project02.SchaperWizard;
 
+/**
+ * Each Tribe constists of 6 members
+ */
 public class Tribe
 {
-    private final int NUMBER_OF_PEOPLE = 6;
+    private final int NUMBER_OF_PEOPLE = 6;  // Tribe size
     private String nationName;
     private String tribeName;
     private int tribeLifePoints;
@@ -44,7 +47,7 @@ public class Tribe
                 RichieHealer.class, RichieWizard.class, RichieWarrior.class,
                 KyleHealer.class, KyleWizard.class, KyleWarrior.class);
 
-        /* Add 3 more people to the tribe since we */
+        /* Add 3 more people to the tribe */
         for(int i = 0; i < 3; i++)
             addMember(peopleTypes);
 
@@ -54,7 +57,7 @@ public class Tribe
 
     /**
      * Add a random member to the tribe from a list of peopleTypes
-     * @param types The list of peopleTypes
+     * @param types The list of characters
      */
     private void addMember(List<Class<? extends People>> types) {
         int randomNum = random.nextInt(types.size());  // Generate random index of the list
