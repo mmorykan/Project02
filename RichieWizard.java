@@ -1,5 +1,9 @@
 /**
- * Header
+ * Strategy for the wizard person type.
+ * The RichieWizard does more damage than a regular SchaperWizard, in an ugly encounter,
+ * and does nothing in a friendly encounter
+ *
+ * Author: Richie Glennon
  */
 package Project02;
 

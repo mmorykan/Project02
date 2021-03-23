@@ -1,5 +1,9 @@
 /**
- * Header
+ * Strategy for the Healer person type.
+ * The RichieHealer does nothing in an ugly encounter,
+ * and heals the other player half of their life points
+ *
+ * Author: Richie Glennon
  */
 package Project02;
 

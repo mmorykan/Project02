@@ -1,5 +1,9 @@
 /**
- * Header
+ * Strategy for the warrior person type.
+ * The RichieWarrior does a random amount of damage to the enemy in an ugly encounter,
+ * and does nothing in a friendly encounter
+ *
+ * Author: Richie Glennon
  */
 package Project02;
 
