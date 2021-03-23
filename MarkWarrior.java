@@ -1,22 +1,44 @@
+/**
+ * Warrior strategy
+ * Author: Mark Morykan
+ */
 package Project02;
 
+/**
+ * Warrior strategy
+ */
 public class MarkWarrior extends People {
 
-
-    public MarkWarrior(String nation, String tribe, PeopleType person, int lifePoints) {
-        super(nation, tribe, person, lifePoints);
+    /**
+     * Call constructor from People base class
+     * @param nation Warrior nation
+     * @param tribe Warrior tribe
+     * @param lifePoints Amount of health points
+     */
+    public MarkWarrior(String nation, String tribe, int lifePoints) {
+        super(nation, tribe, PeopleType.warrior, lifePoints);
     }
 
+    /**
+     * Warrior does double damage to healers than other characters
+     * @param otherPerson Encountered character
+     * @return Damage points to use
+     */
     public int encounterUgly(People otherPerson) {
-        return 0;
+        int lifePoints = this.getLifePoints();
+        if (otherPerson.getType().equals(PeopleType.healer)) {
+            return lifePoints;
+        } else {
+            return lifePoints /2;
+        }
     }
 
+    /**
+     * Warrior does nothing on a friendly encounter.
+     * @param otherPerson Encountered character
+     * @return Damage points to use
+     */
     public int encounterFriendly(People otherPerson) {
-        int lifePoints = 0;
-        if (this.getNation().equals(otherPerson.getNation())) {
-            lifePoints = this.getLifePoints();
-            lifePoints = otherPerson.getType() == PeopleType.warrior ? -lifePoints / 2 : -lifePoints / 3;
-        }
-        return lifePoints;
+        return 0;
     }
 }

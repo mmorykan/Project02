@@ -34,13 +34,15 @@ public class Tribe
         random = new Random();
 
         /* Add one random warrior, wizard, and healer */
-        addMember(Arrays.asList(SchaperWarrior.class, RichieWarrior.class));
-        addMember(Arrays.asList(SchaperWizard.class, RichieWizard.class));
-        addMember(Arrays.asList(MarkHealer.class));
+        addMember(Arrays.asList(SchaperWarrior.class, MarkWarrior.class, RichieWarrior.class, KyleWarrior.class));
+        addMember(Arrays.asList(SchaperWizard.class, MarkWizard.class, RichieWizard.class, KyleWizard.class));
+        addMember(Arrays.asList(MarkHealer.class, RichieHealer.class, KyleHealer.class));
 
         /* List of all people types */
         List<Class<? extends People>> peopleTypes = Arrays.asList(SchaperWarrior.class, SchaperWizard.class,
-                MarkHealer.class, RichieWarrior.class, RichieWizard.class);
+                MarkHealer.class, MarkWizard.class, MarkWarrior.class,
+                RichieHealer.class, RichieWizard.class, RichieWarrior.class,
+                KyleHealer.class, KyleWizard.class, KyleWarrior.class);
 
         /* Add 3 more people to the tribe since we */
         for(int i = 0; i < 3; i++)
