@@ -1,3 +1,11 @@
+/**
+ * The Nation class creates nations for the Warring Nations game.
+ * Each nation is created with 5 tribes, a nation name, a total
+ * number of life points for the nation, and players to populate
+ * the nations. The class also has methods to get a nation's population,
+ * get a nation's name, and print a tribe's status within the nation.
+ */
+
 package Project02;
 
 import java.util.Collection;
@@ -14,7 +22,12 @@ public class Nation
     private ArrayList<People> population = new ArrayList<>();
     private ArrayList<People> livingPopulation = new ArrayList<>();
 
-
+    /**
+     * Creates a Nation and adds a fixed amount of tribes to
+     * the nation with equal life points.
+     * @param name The name of the Nation.
+     * @param lifePoints The amount of life points for the Nation.
+     */
     public Nation(String name, int lifePoints)
     {
         int NUMBER_OF_TRIBES = 5;
@@ -28,7 +41,11 @@ public class Nation
         livingPopulation.addAll(population);
     }
 
-
+    /**
+     * Iterate over all tribes in the Nation and if it has living members,
+     * add its life points to the nations life points.
+     * @return An ArrayList of living tribes.
+     */
     public ArrayList<People> getNationPopulation()
     {
         nationLifePoints = 0;
@@ -46,13 +63,19 @@ public class Nation
         return livingPopulation;
     }
 
-
+    /**
+     * Getter function for a player's nation.
+     * @return nationName which is the name of the nation
+     */
     public String getNationName()
     {
         return nationName;
     }
 
-
+    /**
+     * Prints the status of the tribes including how many players
+     * are still alive and how many are dead in the game.
+     */
     public void printTribesStatus()
     {
         for(int tribe = 0; tribe < 1; tribe++)
