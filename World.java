@@ -63,7 +63,9 @@ public class World
     }
 
 
-
+    /**
+     * Add the warring nations to the world. There is one for each group member
+     */
     public void createWorld()
     {
         int NUMBER_OF_NATIONS = 3;
@@ -73,6 +75,10 @@ public class World
     }
 
 
+    /**
+     * get all the people created in the world.
+     * @return an ArrayList of all the people who have been created
+     */
     public ArrayList<People> getWorldCreatedPopulation()
     {
         ArrayList<People> livingPeople = new ArrayList<>();
@@ -84,6 +90,10 @@ public class World
     }
 
 
+    /**
+     * get all the people in the world with life points left
+     * @return an ArrayList of all the living people in the world
+     */
     public ArrayList<Integer> getWorldSurvivingPeople()
     {
         ArrayList<Integer> survivors = new ArrayList<>();
@@ -98,6 +108,10 @@ public class World
     }
 
 
+    /**
+     * return all the nations with at least one person still alive
+     * @return the set of nations with at least one member still alive
+     */
     public Set<String> getSurvivingNations()
     {
         Set<String> survivingNations = new HashSet<>();
@@ -113,6 +127,11 @@ public class World
     }
 
 
+    /**
+     *
+     * @param person1 the first person in the encounter
+     * @param person2 the second person in the encounter
+     */
     public void encounter(Integer person1, Integer person2)
     {
         Integer person1LifePointsToUse;
@@ -163,7 +182,7 @@ public class World
 
     }
 
-
+    
     public void playOneRound(ArrayList<Integer> combatants)
     {
         System.out.println(combatants.size());

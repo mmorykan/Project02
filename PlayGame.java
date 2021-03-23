@@ -4,7 +4,7 @@ import Project02.World;
 
 public class PlayGame
 {
-    //private Random generator;
+
 
     public PlayGame()
     {

@@ -19,6 +19,14 @@ public class Tribe
     private ArrayList<People> livingMembers = new ArrayList<>();
     private Random random;
 
+    /**
+     * Constructor for a tribe. Creates a tribe with the nation it belongs to, tribe name and lifepoints.
+     * Makes sure the tribe has at least one of each person type, and fills the rest randomly.
+     *
+     * @param nation the nation this tribe will belong to
+     * @param tribe the tribe name
+     * @param lifePoints the amount of lifepoints total for the tribe
+     */
     public Tribe(String nation, String tribe, int lifePoints) {
         nationName = nation;
         tribeName = tribe;
@@ -26,14 +34,13 @@ public class Tribe
         random = new Random();
 
         /* Add one random warrior, wizard, and healer */
-        addMember(Arrays.asList(SchaperWarrior.class, RichieWarrior.class, MarkWarrior.class, KyleWarrior.class));
-        addMember(Arrays.asList(SchaperWizard.class, RichieWizard.class, KyleWizard.class));
-        addMember(Arrays.asList(MarkHealer.class, RichieHealer.class, KyleHealer.class));
+        addMember(Arrays.asList(SchaperWarrior.class, RichieWarrior.class));
+        addMember(Arrays.asList(SchaperWizard.class, RichieWizard.class));
+        addMember(Arrays.asList(MarkHealer.class));
 
         /* List of all people types */
         List<Class<? extends People>> peopleTypes = Arrays.asList(SchaperWarrior.class, SchaperWizard.class,
-                MarkHealer.class, MarkWarrior.class, RichieWarrior.class, RichieWizard.class, RichieHealer.class,
-                KyleHealer.class, KyleWarrior.class, KyleWizard.class);
+                MarkHealer.class, RichieWarrior.class, RichieWizard.class);
 
         /* Add 3 more people to the tribe since we */
         for(int i = 0; i < 3; i++)
@@ -58,6 +65,10 @@ public class Tribe
         }
     }
 
+    /**
+     * return an ArrayList of all living tribe members
+     * @return ArrayList of people living in the tribe
+     */
     public ArrayList<People> getLivingTribeMembers()
     {
         livingMembers.clear();
@@ -92,26 +103,41 @@ public class Tribe
     }
 */
 
+    /**
+     * @return the size of the tribe
+     */
     public int getTribeSize()
     {
         return livingMembers.size();
     }
 
+    /**
+     * @return True if at least one member is alive, false otherwise
+     */
     public Boolean isTribeAlive()
     {
         return (tribeLifePoints > 0);
     }
 
+    /**
+     * @return the total tribe life points remaining
+     */
     public int getTribeLifePoints()
     {
         return tribeLifePoints;
     }
 
+    /**
+     * @return the name of the tribe
+     */
     public String getTribeName()
     {
         return tribeName;
     }
 
+    /**
+     * @return String representation of the tribe
+     */
     public String toString()
     {
         String result = "\0";
