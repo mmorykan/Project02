@@ -1,4 +1,5 @@
 package Project02;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
@@ -10,10 +11,13 @@ import Project02.SchaperWarrior;
 import Project02.SchaperWizard;
 
 /**
- * Each Tribe constists of 6 members
+ * The Tribe Class. Adds people to a tribe and adds the tribe to a nation.
+ * Each tribe has a random warrior, wizard, and healer,
+ * and then a random last 3 members that can be any personType.
+ * <p>
+ * Authors: Richie Glennon, Mark Morykan, Kyle Schaedler
  */
-public class Tribe
-{
+public class Tribe {
     private final int NUMBER_OF_PEOPLE = 6;  // Tribe size
     private String nationName;
     private String tribeName;
@@ -26,8 +30,8 @@ public class Tribe
      * Constructor for a tribe. Creates a tribe with the nation it belongs to, tribe name and lifepoints.
      * Makes sure the tribe has at least one of each person type, and fills the rest randomly.
      *
-     * @param nation the nation this tribe will belong to
-     * @param tribe the tribe name
+     * @param nation     the nation this tribe will belong to
+     * @param tribe      the tribe name
      * @param lifePoints the amount of lifepoints total for the tribe
      */
     public Tribe(String nation, String tribe, int lifePoints) {
@@ -48,15 +52,16 @@ public class Tribe
                 KyleHealer.class, KyleWizard.class, KyleWarrior.class);
 
         /* Add 3 more people to the tribe */
-        for(int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++)
             addMember(peopleTypes);
 
-        for(int i = 0; i < members.size(); i++)
+        for (int i = 0; i < members.size(); i++)
             livingMembers.addAll(members);
     }
 
     /**
      * Add a random member to the tribe from a list of peopleTypes
+     *
      * @param types The list of characters
      */
     private void addMember(List<Class<? extends People>> types) {
@@ -72,24 +77,19 @@ public class Tribe
 
     /**
      * return an ArrayList of all living tribe members
+     *
      * @return ArrayList of people living in the tribe
      */
-    public ArrayList<People> getLivingTribeMembers()
-    {
+    public ArrayList<People> getLivingTribeMembers() {
         livingMembers.clear();
         tribeLifePoints = 0;
-        for(int person = 0; person < members.size(); person++)
-        {
-            if(members.get(person).isPersonAlive())
-            {
+        for (int person = 0; person < members.size(); person++) {
+            if (members.get(person).isPersonAlive()) {
                 livingMembers.add(members.get(person));
                 tribeLifePoints += members.get(person).getLifePoints();
                 //System.out.println(members.get(person));
-            }
-            else
-            {
-                if(!(members.get(person).getDead()))
-                {
+            } else {
+                if (!(members.get(person).getDead())) {
                     members.get(person).setDead();
                     System.out.println("\t\t" + members.get(person) + " is dead!");
                 }
@@ -111,45 +111,39 @@ public class Tribe
     /**
      * @return the size of the tribe
      */
-    public int getTribeSize()
-    {
+    public int getTribeSize() {
         return livingMembers.size();
     }
 
     /**
      * @return True if at least one member is alive, false otherwise
      */
-    public Boolean isTribeAlive()
-    {
+    public Boolean isTribeAlive() {
         return (tribeLifePoints > 0);
     }
 
     /**
      * @return the total tribe life points remaining
      */
-    public int getTribeLifePoints()
-    {
+    public int getTribeLifePoints() {
         return tribeLifePoints;
     }
 
     /**
      * @return the name of the tribe
      */
-    public String getTribeName()
-    {
+    public String getTribeName() {
         return tribeName;
     }
 
     /**
      * @return String representation of the tribe
      */
-    public String toString()
-    {
+    public String toString() {
         String result = "\0";
 
         result = tribeName;
-        for(int i = 0; i < members.size(); i++)
-        {
+        for (int i = 0; i < members.size(); i++) {
             result = result + '\n' + members.get(i).toString();
         }
         result = result + '\n';

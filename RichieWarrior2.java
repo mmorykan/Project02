@@ -1,10 +1,3 @@
-/**
- * Strategy for the warrior person type.
- * The RichieWarrior does a random amount of damage to the enemy in an ugly encounter,
- * and does nothing in a friendly encounter
- *
- * Author: Richie Glennon
- */
 package Project02;
 
 import Project02.People;
@@ -12,18 +5,24 @@ import Project02.PeopleType;
 
 import java.util.Random;
 
-
+/**
+ * Strategy for the warrior person type.
+ * The RichieWarrior does a random amount of damage to the enemy in an ugly encounter,
+ * and does nothing in a friendly encounter
+ * <p>
+ * Author: Richie Glennon
+ */
 public class RichieWarrior2 extends People {
     Random r = new Random();
 
     /**
-     * Create a RichieWarrior object
-     * @param nation the nation it belongs to
-     * @param tribe the tribe it belongs to
+     * Create a RichieWarrior2 object
+     *
+     * @param nation     the nation it belongs to
+     * @param tribe      the tribe it belongs to
      * @param lifePoints the amount of life points he has
      */
-    public RichieWarrior2(String nation, String tribe, int lifePoints)
-    {
+    public RichieWarrior2(String nation, String tribe, int lifePoints) {
         super(nation, tribe, PeopleType.warrior, lifePoints);
         myDescription = "\tRichie Warrior2";
     }
@@ -38,7 +37,7 @@ public class RichieWarrior2 extends People {
      * @return the amount of damage done
      */
     public int encounterUgly(People otherPerson) {
-        if(otherPerson.getType() == PeopleType.healer)
+        if (otherPerson.getType() == PeopleType.healer)
             return r.nextInt((40 - 20) + 1) + 20;
         else if (otherPerson.getType() == PeopleType.wizard)
             return r.nextInt((30 - 10) + 1) + 10;
