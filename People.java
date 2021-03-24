@@ -125,7 +125,7 @@ public abstract class People
 
     public String toString()
     {
-        return myNation + "\t" +  myTribe + "\t" + me + "\t" + myDescription + "\t" + myLifePoints;
+        return myNation + "\t" +  myTribe + "\t" + me + "\t" + myDescription + "\t" + myLifePoints + "\t";
     }
 }
 

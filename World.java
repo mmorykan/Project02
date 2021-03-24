@@ -26,8 +26,16 @@ public class World
         worldCreatedPeople.addAll(getWorldCreatedPopulation());
     }
 
+    /**
+     * Simulate the game. If there are people still alive from other nations,
+     * play one round. Repeat until there are no nations left or you reach 40 rounds.
+     * At the end, print the remaining people or if all nations were destroyed.
+     */
     public void war()
         {
+            String nationColor = "";
+            String resetColor = "\u001B[0m";
+
             ArrayList<Integer> worldSurvivingPeople = new ArrayList<>();
 
             for(int round = 1; round < numberOfRounds; round++)
@@ -44,16 +52,22 @@ public class World
                     System.out.print("Game is over! Winning Nation is: ");
                     if (survivingNations.size() == 0)
                     {
-                        System.out.println("All Nations Distroyed.");
+                        System.out.println("All Nations Destroyed.");
                     }
                     else
                     {
                         System.out.println(survivingNations);
                         System.out.println("The survivors are:");
-                        for (Integer i = 0; i < worldSurvivingPeople.size(); i++)
-                        {
-                            System.out.println(worldCreatedPeople.get(worldSurvivingPeople.get(i)));
+
+                        switch (worldCreatedPeople.get(worldSurvivingPeople.get(0)).getNation()) {
+                            case "Mark's Nation" -> nationColor = "\u001B[32m";
+                            case "Richie's Nation" -> nationColor = "\u001B[34m";
+                            case "Kyle's Nation" -> nationColor = "\u001B[31m";
                         }
+                        for (Integer worldSurvivingPerson : worldSurvivingPeople) {
+                            System.out.println(nationColor + worldCreatedPeople.get(worldSurvivingPerson) + resetColor);
+                        }
+
                     }
                     break;
                 }
@@ -64,7 +78,7 @@ public class World
 
 
     /**
-     * Add the warring nations to the world. There is one for each group member
+     * Add the warring nations to the world. There is one for each group member.
      */
     public void createWorld()
     {
@@ -196,7 +210,11 @@ public class World
 
     }
 
-    
+    /**
+     * Shuffle the list of combatants and then pick 2 to have an encounter until there are none left
+     *
+     * @param combatants the list of people to have encounters in this round
+     */
     public void playOneRound(ArrayList<Integer> combatants)
     {
         System.out.println(combatants.size());
