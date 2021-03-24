@@ -134,11 +134,25 @@ public class World
      */
     public void encounter(Integer person1, Integer person2)
     {
+        String player1Color = "";
+        String player2Color = "";
+        String resetColor = "\u001B[0m";
+
         Integer person1LifePointsToUse;
         Integer person2LifePointsToUse;
         People player1 = worldCreatedPeople.get(person1), player2 = worldCreatedPeople.get(person2);
-        System.out.println("Encounter: " + player1 + player2);
-;
+        switch (player1.getNation()) {
+            case "Mark's Nation" -> player1Color = "\u001B[32m";
+            case "Richie's Nation" -> player1Color = "\u001B[34m";
+            case "Kyle's Nation" -> player1Color = "\u001B[31m";
+        }
+        switch (player2.getNation()) {
+            case "Mark's Nation" -> player2Color = "\u001B[32m";
+            case "Richie's Nation" -> player2Color = "\u001B[34m";
+            case "Kyle's Nation" -> player2Color = "\u001B[31m";
+        }
+        System.out.println("Encounter: " + player1Color +player1 + player2Color+player2+ resetColor);
+
         //if lifePointsToUse is negative, then person is either running away in a hostile encounter
         // or person is giving life points to another person from same nation
         if (player1.getNation().equals(player2.getNation())) {
