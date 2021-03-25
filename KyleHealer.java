@@ -12,6 +12,7 @@ package Project02;
 
 import Project02.People;
 import Project02.PeopleType;
+import Project02.Tribe;
 import java.util.Random;
 
 public class KyleHealer extends People {
@@ -35,7 +36,10 @@ public class KyleHealer extends People {
      * @return lifePoints that can be used in the encounter
      */
     public int encounterUgly(People otherPerson) {
-        return 5;
+        if (this.getLifePoints() >= 5)
+            return 5;
+        else
+            return this.getLifePoints();
     }
 
     /**
@@ -45,7 +49,7 @@ public class KyleHealer extends People {
      * @return lifePoints that can be used in the encounter
      */
     public int encounterFriendly(People otherPerson) {
-        return -(r.nextInt(100));
+        return -((int) r.nextInt(100) / 4);
     }
 
 }

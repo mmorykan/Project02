@@ -40,7 +40,10 @@ public class KyleWarrior extends People {
             lifePoints = otherPerson.getLifePoints();
         }
         else {
-            lifePoints = 10;
+            if (this.getLifePoints() >= 10)
+                return 10;
+            else
+                return this.getLifePoints();
         }
         return lifePoints;
     }

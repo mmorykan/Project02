@@ -43,7 +43,7 @@ public class KyleHealer2 extends People {
      * @return lifePoints that can be used in the encounter
      */
     public int encounterFriendly(People otherPerson) {
-        return -(this.getLifePoints());
+        return -((int) this.getLifePoints() / 2);
     }
 
 }
