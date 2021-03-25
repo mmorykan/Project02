@@ -61,10 +61,12 @@ public class World {
                     System.out.println(survivingNations);
                     System.out.println("The survivors are:");
 
-                    switch (worldCreatedPeople.get(worldSurvivingPeople.get(0)).getNation()) {
-                        case "Mark's Nation" -> nationColor = "\u001B[32m";
-                        case "Richie's Nation" -> nationColor = "\u001B[34m";
-                        case "Kyle's Nation" -> nationColor = "\u001B[31m";
+                    if ("Mark's Nation".equals(worldCreatedPeople.get(worldSurvivingPeople.get(0)).getNation())) {
+                        nationColor = "\u001B[32m";
+                    } else if ("Richie's Nation".equals(worldCreatedPeople.get(worldSurvivingPeople.get(0)).getNation())) {
+                        nationColor = "\u001B[34m";
+                    } else if ("Kyle's Nation".equals(worldCreatedPeople.get(worldSurvivingPeople.get(0)).getNation())) {
+                        nationColor = "\u001B[31m";
                     }
                     for (Integer worldSurvivingPerson : worldSurvivingPeople) {
                         System.out.println(nationColor + worldCreatedPeople.get(worldSurvivingPerson) + resetColor);
@@ -150,15 +152,19 @@ public class World {
         Integer person1LifePointsToUse;
         Integer person2LifePointsToUse;
         People player1 = worldCreatedPeople.get(person1), player2 = worldCreatedPeople.get(person2);
-        switch (player1.getNation()) {
-            case "Mark's Nation" -> player1Color = "\u001B[32m";
-            case "Richie's Nation" -> player1Color = "\u001B[34m";
-            case "Kyle's Nation" -> player1Color = "\u001B[31m";
+        if ("Mark's Nation".equals(player1.getNation())) {
+            player1Color = "\u001B[32m";
+        } else if ("Richie's Nation".equals(player1.getNation())) {
+            player1Color = "\u001B[34m";
+        } else if ("Kyle's Nation".equals(player1.getNation())) {
+            player1Color = "\u001B[31m";
         }
-        switch (player2.getNation()) {
-            case "Mark's Nation" -> player2Color = "\u001B[32m";
-            case "Richie's Nation" -> player2Color = "\u001B[34m";
-            case "Kyle's Nation" -> player2Color = "\u001B[31m";
+        if ("Mark's Nation".equals(player2.getNation())) {
+            player2Color = "\u001B[32m";
+        } else if ("Richie's Nation".equals(player2.getNation())) {
+            player2Color = "\u001B[34m";
+        } else if ("Kyle's Nation".equals(player2.getNation())) {
+            player2Color = "\u001B[31m";
         }
         System.out.println("Encounter: " + player1Color + player1 + player2Color + player2 + resetColor);
 
