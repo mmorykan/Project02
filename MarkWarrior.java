@@ -17,6 +17,7 @@ public class MarkWarrior extends People {
      */
     public MarkWarrior(String nation, String tribe, int lifePoints) {
         super(nation, tribe, PeopleType.warrior, lifePoints);
+        myDescription = "\tMark Warrior";
     }
 
     /**

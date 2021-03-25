@@ -17,7 +17,7 @@ public class MarkWizard2 extends People {
      */
     public MarkWizard2(String nation, String tribe, int lifePoints) {
         super(nation, tribe, PeopleType.wizard, lifePoints);
-        myDescription = "\tMark Wizard";
+        myDescription = "\tMark Wizard 2";
     }
 
     /**

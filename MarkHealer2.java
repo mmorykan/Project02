@@ -17,7 +17,7 @@ public class MarkHealer2 extends People {
      */
     public MarkHealer2(String nation, String tribe, int lifePoints) {
         super(nation, tribe, PeopleType.healer, lifePoints);
-        myDescription = "\tMark Healer";
+        myDescription = "\tMark Healer 2";
     }
 
     /**
