@@ -8,7 +8,7 @@ public class MarkWarrior2 extends People {
      * @param tribe Warrior tribe
      * @param lifePoints Amount of health points
      */
-    MarkWarrior2(String nation, String tribe, int lifePoints) {
+    public MarkWarrior2(String nation, String tribe, int lifePoints) {
         super(nation, tribe, PeopleType.warrior, lifePoints);
     }
 
