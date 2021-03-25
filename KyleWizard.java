@@ -6,6 +6,8 @@
  * the opponent is a wizard, they will respect the wizard and not
  * attack. In a friendly encounter, the Wizard will leave
  * the other player alone.
+ *
+ * Author: Kyle Schaedler
  */
 
 package Project02;

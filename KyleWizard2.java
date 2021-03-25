@@ -4,6 +4,8 @@
  * encounter, the Wizard will attack offering up a third of their health.
  * In a friendly encounter, the Wizard will offer a third of their health
  * to heal their teammate if they are a warrior.
+ *
+ * Author: Kyle Schaedler
  */
 
 package Project02;

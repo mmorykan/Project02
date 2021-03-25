@@ -6,6 +6,8 @@
  * it safe and attack lightly if they have greater than or equal
  * life points. In a friendly encounter, the Warrior will leave
  * the other player alone.
+ *
+ * Author: Kyle Schaedler
  */
 
 package Project02;

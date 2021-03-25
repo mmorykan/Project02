@@ -4,6 +4,8 @@
  * encounter, the Healer will attack the opponent lightly. In
  * a friendly encounter, the Healer will heal the player by a
  * randomly generated amount.
+ *
+ * Author: Kyle Schaedler
  */
 
 package Project02;

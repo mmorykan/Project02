@@ -4,6 +4,8 @@
  * encounter, the Warrior will attack offering up all of their health
  * regardless of the opponent. In a friendly encounter, the Warrior will
  * leave the other player alone.
+ *
+ * Author: Kyle Schaedler
  */
 
 package Project02;

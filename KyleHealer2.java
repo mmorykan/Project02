@@ -4,6 +4,8 @@
  * encounter, the Healer will leave the other player alone. In a friendly
  * encounter, the Healer will try to heal their ally completely, offering
  * all of their health.
+ *
+ * Author: Kyle Schaedler
  */
 
 package Project02;
