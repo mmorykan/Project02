@@ -20,7 +20,7 @@ public class KyleHealer2 extends People {
      * @param lifePoints is how many base life points the character has
      */
     public KyleHealer2(String nation, String tribe, int lifePoints) {
-        super(nation, tribe, PeopleType.wizard, lifePoints);
+        super(nation, tribe, PeopleType.healer, lifePoints);
         myDescription = "\tKyle Healer 2";
     }
 

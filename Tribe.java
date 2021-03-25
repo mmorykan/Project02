@@ -41,9 +41,17 @@ public class Tribe {
         random = new Random();
 
         /* Add one random warrior, wizard, and healer */
-        addMember(Arrays.asList(SchaperWarrior.class, MarkWarrior.class, RichieWarrior.class, RichieWarrior2.class, KyleWarrior.class));
-        addMember(Arrays.asList(SchaperWizard.class, MarkWizard.class, RichieWizard.class, RichieWizard2.class, KyleWizard.class));
-        addMember(Arrays.asList(MarkHealer.class, RichieHealer.class, RichieHealer2.class, KyleHealer.class));
+        addMember(Arrays.asList(SchaperWarrior.class,
+                MarkWarrior.class, MarkWarrior2.class,
+                RichieWarrior.class, RichieWarrior2.class,
+                KyleWarrior.class, KyleWarrior2.class));
+        addMember(Arrays.asList(SchaperWizard.class,
+                MarkWizard.class, MarkWizard2.class,
+                RichieWizard.class, RichieWizard2.class,
+                KyleWizard.class, KyleWizard2.class));
+        addMember(Arrays.asList(MarkHealer.class, MarkHealer2.class,
+                RichieHealer.class, RichieHealer2.class,
+                KyleHealer.class, KyleHealer2.class));
 
         /* List of all people types */
         List<Class<? extends People>> peopleTypes = Arrays.asList(SchaperWarrior.class, SchaperWizard.class,
@@ -51,7 +59,8 @@ public class Tribe {
                 MarkHealer2.class, MarkWizard2.class, MarkWarrior2.class,
                 RichieHealer.class, RichieWizard.class, RichieWarrior.class,
                 RichieWarrior2.class, RichieWizard2.class, RichieHealer2.class,
-                KyleHealer.class, KyleWizard.class, KyleWarrior.class);
+                KyleHealer.class, KyleWizard.class, KyleWarrior.class,
+                KyleHealer2.class, KyleWizard2.class, KyleWarrior2.class);
 
         /* Add 3 more people to the tribe */
         for (int i = 0; i < 3; i++)
@@ -63,7 +72,6 @@ public class Tribe {
 
     /**
      * Add a random member to the tribe from a list of peopleTypes
-     *
      * @param types The list of characters
      */
     private void addMember(List<Class<? extends People>> types) {
