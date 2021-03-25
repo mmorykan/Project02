@@ -6,7 +6,7 @@ import Project02.PeopleType;
 
 /**
  * Wizard Strategy
- * Author: Dr. Strategy
+ * Author: Dr. Schaper
  * Modified by Mark Morykan
  */
 public class SchaperWizard extends Project02.People {

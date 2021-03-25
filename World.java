@@ -1,3 +1,7 @@
+/**
+ * Runs the game for a specific amount of rounds, keeping track of all nations and living nations
+ * as well as creating the world
+ */
 package Project02;
 
 import Project02.Nation;

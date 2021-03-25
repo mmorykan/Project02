@@ -1,3 +1,7 @@
+/**
+ * Each Nation gets 5 Tribes each with 6 People: at least 1 warrior, wizard, and healer,
+ * and then randomly chosen People.
+ */
 package Project02;
 
 import java.lang.reflect.Constructor;

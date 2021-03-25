@@ -1,3 +1,6 @@
+/**
+ * Different types of characters in the game with a description of each
+ */
 package Project02;
 
 /**

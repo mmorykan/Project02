@@ -1,3 +1,7 @@
+/**
+ * There are 3 different nations, each with 5 tribes containing 6 People. Every nation gets equal life points.
+ * Keeps track of its own population and living population
+ */
 package Project02;
 
 import java.util.Collection;

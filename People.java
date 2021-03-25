@@ -1,3 +1,8 @@
+/**
+ * Abstract class representing one character from PeopleTypes.
+ * Keeps track of nation, tribe, type and life points of a character.
+ * Also declares abstract methods for every character sub-class to implement
+ */
 package Project02;
 
 import Project02.PeopleType;

@@ -1,3 +1,6 @@
+/**
+ * Runs the whole game by starting war
+ */
 package Project02;
 
 import Project02.World;
