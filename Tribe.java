@@ -48,7 +48,9 @@ public class Tribe {
         /* List of all people types */
         List<Class<? extends People>> peopleTypes = Arrays.asList(SchaperWarrior.class, SchaperWizard.class,
                 MarkHealer.class, MarkWizard.class, MarkWarrior.class,
-                RichieHealer.class, RichieWizard.class, RichieWarrior.class, RichieWarrior2.class, RichieWizard2.class, RichieHealer2.class,
+                MarkHealer2.class, MarkWizard2.class, MarkWarrior2.class,
+                RichieHealer.class, RichieWizard.class, RichieWarrior.class,
+                RichieWarrior2.class, RichieWizard2.class, RichieHealer2.class,
                 KyleHealer.class, KyleWizard.class, KyleWarrior.class);
 
         /* Add 3 more people to the tribe */
