@@ -49,7 +49,7 @@ public class KyleWizard2 extends People {
         if (otherPerson.getType() == PeopleType.warrior)
             lifePoints = (this.getLifePoints() - otherPerson.getLifePoints()) / 3;
 
-        return lifePoints;
+        return -(lifePoints);
     }
 
 }
