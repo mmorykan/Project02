@@ -149,25 +149,24 @@ public class World {
      * @param person2 the second person in the encounter
      */
     public void encounter(Integer person1, Integer person2) {
-        String player1Color = "";
-        String player2Color = "";
+        String player1Color = "", player2Color = "";
         String resetColor = "\u001B[0m";
 
-        Integer person1LifePointsToUse;
-        Integer person2LifePointsToUse;
+        int person1LifePointsToUse, person2LifePointsToUse;
         People player1 = worldCreatedPeople.get(person1), player2 = worldCreatedPeople.get(person2);
-        if ("Mark's Nation".equals(player1.getNation())) {
+        String player1Nation = player1.getNation(), player2Nation = player2.getNation();
+        if ("Mark's Nation".equals(player1Nation)) {
             player1Color = "\u001B[32m";
-        } else if ("Richie's Nation".equals(player1.getNation())) {
+        } else if ("Richie's Nation".equals(player1Nation)) {
             player1Color = "\u001B[34m";
-        } else if ("Kyle's Nation".equals(player1.getNation())) {
+        } else if ("Kyle's Nation".equals(player1Nation)) {
             player1Color = "\u001B[31m";
         }
-        if ("Mark's Nation".equals(player2.getNation())) {
+        if ("Mark's Nation".equals(player2Nation)) {
             player2Color = "\u001B[32m";
-        } else if ("Richie's Nation".equals(player2.getNation())) {
+        } else if ("Richie's Nation".equals(player2Nation)) {
             player2Color = "\u001B[34m";
-        } else if ("Kyle's Nation".equals(player2.getNation())) {
+        } else if ("Kyle's Nation".equals(player2Nation)) {
             player2Color = "\u001B[31m";
         }
         System.out.println("Encounter: " + player1Color + player1 + player2Color + player2 + resetColor);
@@ -183,19 +182,19 @@ public class World {
         }
 
         // amount of life points actually used is subject to a psuedo-random encounter
-        Integer p1damage = (int) (generator.nextFloat() * person1LifePointsToUse);
-        Integer p2damage = (int) (generator.nextFloat() * person2LifePointsToUse);
+        int p1damage = (int) (generator.nextFloat() * person1LifePointsToUse);
+        int p2damage = (int) (generator.nextFloat() * person2LifePointsToUse);
 
-        if ((p1damage > 0) && (p2damage > 0))  // person 1  and person 2 are fighting and inflicting damage
+        if (p1damage > 0 && p2damage > 0)  // person 1  and person 2 are fighting and inflicting damage
         {
-            p2damage = (int) (generator.nextFloat() * (worldCreatedPeople.get(person1).getType().ordinal() + 1) * p1damage);
-            p1damage = (int) (generator.nextFloat() * (worldCreatedPeople.get(person2).getType().ordinal() + 1) * p2damage);
-        } else if ((p1damage > 0) && (p2damage <= 0)) // person 1 is fighting and person 2 is running
+            p2damage = (int) (generator.nextFloat() * p1damage);
+            p1damage = (int) (generator.nextFloat() * p2damage);
+        } else if (p1damage > 0) // person 1 is fighting and person 2 is running
         {
-            p2damage = (int) (generator.nextFloat() * (worldCreatedPeople.get(person1).getType().ordinal() + 1) * (p1damage / 3));
-        } else if ((p1damage <= 0) && (p2damage > 0)) // person 2 is fighting and person 1 is running
+            p2damage = (int) (generator.nextFloat() * (p1damage / 3));
+        } else if (p2damage > 0) // person 2 is fighting and person 1 is running
         {
-            p1damage = (int) (generator.nextFloat() * (worldCreatedPeople.get(person2).getType().ordinal() + 1) * (p2damage / 3));
+            p1damage = (int) (generator.nextFloat() * (p2damage / 3));
         } else // friendly encounter, do nothing
         {
 
@@ -203,12 +202,16 @@ public class World {
 
         // record the damage: positive damage should be subtracted for persons lifePoint
         // negative damage is added to persons life points
-        worldCreatedPeople.get(person1).modifyLifePoints((-p2damage));
-        worldCreatedPeople.get(person2).modifyLifePoints((-p1damage));
+        player1.modifyLifePoints((-p2damage));
+        player2.modifyLifePoints((-p1damage));
+        int player1LifePoints = player1.getLifePoints(), player2LifePoints = player2.getLifePoints();
+        if (player1LifePoints > People.MAX_LIFE_POINTS) player1.modifyLifePoints(People.MAX_LIFE_POINTS - player1LifePoints);
+        if (player2LifePoints > People.MAX_LIFE_POINTS) player2.modifyLifePoints(People.MAX_LIFE_POINTS - player2LifePoints);
+
 
         // Both people lose 1 life point per encounter due to aging
-        worldCreatedPeople.get(person1).modifyLifePoints((-1));
-        worldCreatedPeople.get(person2).modifyLifePoints((-1));
+        player1.modifyLifePoints((-1));
+        player2.modifyLifePoints((-1));
 
     }
 

@@ -24,6 +24,7 @@ public abstract class People {
     private PeopleType me;
     protected String myDescription;
     private int myLifePoints;
+    public static final int MAX_LIFE_POINTS = 100;
     private boolean dead;
 
     /**
