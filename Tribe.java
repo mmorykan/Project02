@@ -22,14 +22,17 @@ import Project02.SchaperWizard;
  * Authors: Richie Glennon, Mark Morykan, Kyle Schaedler
  */
 public class Tribe {
-    private final int NUMBER_OF_PEOPLE = 6;  // Tribe size
-    private String nationName;
-    private String tribeName;
-    private int tribeLifePoints;
-    private ArrayList<People> members = new ArrayList<>();
-    private ArrayList<People> livingMembers = new ArrayList<>();
-    private Random random;
+    protected final int NUMBER_OF_PEOPLE = 6;  // Tribe size
+    protected String nationName;
+    protected String tribeName;
+    protected int tribeLifePoints;
+    protected ArrayList<People> members = new ArrayList<>();
+    protected ArrayList<People> livingMembers = new ArrayList<>();
+    protected Random random;
 
+    public Tribe() {
+
+    }
     /**
      * Constructor for a tribe. Creates a tribe with the nation it belongs to, tribe name and lifepoints.
      * Makes sure the tribe has at least one of each person type, and fills the rest randomly.
@@ -68,15 +71,15 @@ public class Tribe {
         for (int i = 0; i < 3; i++)
             addMember(peopleTypes);
 
-        for (int i = 0; i < members.size(); i++)
-            livingMembers.addAll(members);
+//        for (int i = 0; i < members.size(); i++)
+        livingMembers.addAll(members);
     }
 
     /**
      * Add a random member to the tribe from a list of peopleTypes
      * @param types The list of characters
      */
-    private void addMember(List<Class<? extends People>> types) {
+    protected void addMember(List<Class<? extends People>> types) {
         int randomNum = random.nextInt(types.size());  // Generate random index of the list
         Constructor<?> constructor = types.get(randomNum).getConstructors()[0];  // Get constructor of class at index
         try {

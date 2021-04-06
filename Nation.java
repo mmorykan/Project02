@@ -4,8 +4,6 @@
  */
 package Project02;
 
-import java.util.Collection;
-import java.util.Collections;
 import java.util.ArrayList;
 
 import Project02.Tribe;
@@ -19,12 +17,15 @@ import Project02.People;
  * get a nation's name, and print a tribe's status within the nation.
  */
 public class Nation {
-    private int nationLifePoints;
-    private String nationName;
-    private ArrayList<Tribe> tribes = new ArrayList<>();
-    private ArrayList<People> population = new ArrayList<>();
-    private ArrayList<People> livingPopulation = new ArrayList<>();
+    protected int nationLifePoints;
+    protected String nationName;
+    protected ArrayList<Tribe> tribes = new ArrayList<>();
+    protected ArrayList<People> population = new ArrayList<>();
+    protected ArrayList<People> livingPopulation = new ArrayList<>();
 
+    public Nation() {
+
+    }
     /**
      * Creates a Nation and adds a fixed amount of tribes to
      * the nation with equal life points.
