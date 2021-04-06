@@ -13,7 +13,7 @@ import Project02.Dice;
  */
 public class RichieWarrior2 extends People {
     Dice dice = new Dice(20);
-    
+
     /**
      * Create a RichieWarrior2 object
      *
@@ -37,11 +37,11 @@ public class RichieWarrior2 extends People {
      */
     public int encounterUgly(People otherPerson) {
         if (otherPerson.getType() == PeopleType.healer)
-            return (dice.roll()+ 1) + 20;
+            return dice.roll() + 20;
         else if (otherPerson.getType() == PeopleType.wizard)
-            return (dice.roll()+ 1) + 10;
+            return dice.roll() + 10;
         else
-            return (dice.roll()+ 1) + 1;
+            return dice.roll() + 1;
 
 
     }

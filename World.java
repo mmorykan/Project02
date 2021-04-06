@@ -6,7 +6,7 @@ package Project02;
 
 import Project02.Nation;
 import Project02.People;
-
+import Project02.Dice;
 import java.util.*;
 
 
@@ -26,14 +26,14 @@ public class World {
     private ArrayList<Nation> allLivingNations = new ArrayList<>();
 
 
-    Random generator;
+//    Random generator;
     ArrayList<People> worldCreatedPeople = new ArrayList<>();
 
 
     public World() {
         // seed for psuedo-random number generator
-        Date seed = new Date();
-        generator = new Random(seed.getTime());
+//        Date seed = new Date();
+//        generator = new Random(seed.getTime());
         createWorld();
         worldCreatedPeople.addAll(getWorldCreatedPopulation());
     }
@@ -155,13 +155,13 @@ public class World {
         }
 
         // amount of life points actually used is subject to a pseudo-random encounter
-        int p1damage = (int) (generator.nextFloat() * person1LifePointsToUse);
-        int p2damage = (int) (generator.nextFloat() * person2LifePointsToUse);
+        int p1damage = (int) (new Dice(person1LifePointsToUse).roll());
+        int p2damage = (int) (new Dice(person2LifePointsToUse).roll());
 
         // person 1  and person 2 are fighting and inflicting damage
         if (p1damage > 0 && p2damage > 0) {
-            p2damage = (int) (generator.nextFloat() * p1damage);
-            p1damage = (int) (generator.nextFloat() * p2damage);
+            p2damage = (int) (new Dice(p1damage).roll());
+            p1damage = (int) (new Dice(p2damage).roll());
         }
 
         // record the damage: positive damage should be subtracted for persons lifePoint

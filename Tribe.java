@@ -45,12 +45,10 @@ public class Tribe {
         random = new Random();
 
         /* Add one random warrior, wizard, and healer */
-        addMember(Arrays.asList(
-                MarkWarrior.class, MarkWarrior2.class,
+        addMember(Arrays.asList(MarkWarrior.class, MarkWarrior2.class,
                 RichieWarrior.class, RichieWarrior2.class,
                 KyleWarrior.class, KyleWarrior2.class));
-        addMember(Arrays.asList(
-                MarkWizard.class, MarkWizard2.class,
+        addMember(Arrays.asList(MarkWizard.class, MarkWizard2.class,
                 RichieWizard.class, RichieWizard2.class,
                 KyleWizard.class, KyleWizard2.class));
         addMember(Arrays.asList(MarkHealer.class, MarkHealer2.class,
