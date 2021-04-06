@@ -150,7 +150,15 @@ public class World {
         if (player1.getNation().equals(player2.getNation())) {
             person1LifePointsToUse = player1.encounterFriendly(player2);
             person2LifePointsToUse = player2.encounterFriendly(player1);
-        } else {
+        } else if(player1.getNation().equals("Special Nation")){
+            player2.encounterSpecial(player1);
+            return;
+        }
+        else if(player2.getNation().equals("Special Nation")){
+            player1.encounterSpecial(player2);
+            return;
+        }
+        else {
             person1LifePointsToUse = player1.encounterUgly(player2);
             person2LifePointsToUse = player2.encounterUgly(player1);
         }
