@@ -40,4 +40,9 @@ public class MarkHealer extends People {
         lifePoints = otherPerson.getType() == PeopleType.warrior ? -lifePoints / 2 : -lifePoints / 3;
         return lifePoints;
     }
+
+    @Override
+    public int encounterSpecial(People otherPerson) {
+        return 0;
+    }
 }

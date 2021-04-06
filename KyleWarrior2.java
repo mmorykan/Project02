@@ -46,4 +46,9 @@ public class KyleWarrior2 extends People {
        return 0;
     }
 
+    @Override
+    public int encounterSpecial(People otherPerson) {
+        return 0;
+    }
+
 }

@@ -55,4 +55,9 @@ public class RichieHealer2 extends Project02.People {
         }
         return lifePoints;
     }
+
+    @Override
+    public int encounterSpecial(People otherPerson) {
+        return 0;
+    }
 }

@@ -53,4 +53,9 @@ public class KyleHealer extends People {
         return -((int) dice.roll() / 4);
     }
 
+    @Override
+    public int encounterSpecial(People otherPerson) {
+        return 0;
+    }
+
 }

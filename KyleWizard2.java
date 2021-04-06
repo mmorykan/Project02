@@ -52,4 +52,9 @@ public class KyleWizard2 extends People {
         return -(lifePoints);
     }
 
+    @Override
+    public int encounterSpecial(People otherPerson) {
+        return 0;
+    }
+
 }

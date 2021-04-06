@@ -38,4 +38,9 @@ public class MarkHealer2 extends People {
         int lifePoints = this.getLifePoints();
         return otherPerson.getType() == PeopleType.wizard ? -lifePoints / 2 : -lifePoints / 3;
     }
+
+    @Override
+    public int encounterSpecial(People otherPerson) {
+        return 0;
+    }
 }

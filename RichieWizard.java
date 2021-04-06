@@ -52,4 +52,9 @@ public class RichieWizard extends Project02.People {
     public int encounterFriendly(People otherPerson) {
         return 0;
     }
+
+    @Override
+    public int encounterSpecial(People otherPerson) {
+        return 0;
+    }
 }

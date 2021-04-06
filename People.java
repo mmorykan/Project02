@@ -128,6 +128,12 @@ public abstract class People {
      */
     public abstract int encounterFriendly(People otherPerson);
 
+    /**
+     * Abstract method for a special encounter
+     * @param otherPerson other special player
+     */
+    public abstract int encounterSpecial(People otherPerson);
+
     public String toString() {
         return myNation + "\t" + myTribe + "\t" + me + "\t" + myDescription + "\t" + myLifePoints + "\t";
     }

@@ -41,4 +41,9 @@ public class MarkWarrior2 extends People {
         }
         return lifePoints;
     }
+
+    @Override
+    public int encounterSpecial(People otherPerson) {
+        return 0;
+    }
 }

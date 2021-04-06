@@ -46,4 +46,9 @@ public class KyleHealer2 extends People {
         return -((int) this.getLifePoints() / 2);
     }
 
+    @Override
+    public int encounterSpecial(People otherPerson) {
+        return 0;
+    }
+
 }
