@@ -2,8 +2,7 @@ package Project02;
 
 import Project02.People;
 import Project02.PeopleType;
-
-import java.util.Random;
+import Project02.Dice;
 
 
 /**
@@ -14,7 +13,8 @@ import java.util.Random;
  * Author: Richie Glennon
  */
 public class RichieWarrior extends People {
-    Random r = new Random();
+
+    Dice dice = new Dice(100);
 
     /**
      * Create a RichieWarrior object
@@ -37,7 +37,7 @@ public class RichieWarrior extends People {
      * @return the amount of damage done
      */
     public int encounterUgly(People otherPerson) {
-        return r.nextInt(100);
+        return dice.roll();
     }
 
     /**

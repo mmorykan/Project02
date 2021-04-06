@@ -13,9 +13,11 @@ package Project02;
 import Project02.People;
 import Project02.PeopleType;
 import Project02.Tribe;
-import java.util.Random;
+import Project02.Dice;
 
 public class KyleHealer extends People {
+
+    Dice dice = new Dice(100);
 
     /**
      * KyleHealer constructor creates a Kyle Healer Character
@@ -23,7 +25,6 @@ public class KyleHealer extends People {
      * @param tribe is what tribe the character is from
      * @param lifePoints is how many base life points the character has
      */
-    Random r = new Random();
     public KyleHealer(String nation, String tribe, int lifePoints) {
         super(nation, tribe, PeopleType.healer, lifePoints);
         myDescription = "\tKyle Healer";
@@ -49,7 +50,7 @@ public class KyleHealer extends People {
      * @return lifePoints that can be used in the encounter
      */
     public int encounterFriendly(People otherPerson) {
-        return -((int) r.nextInt(100) / 4);
+        return -((int) dice.roll() / 4);
     }
 
 }

@@ -2,8 +2,7 @@ package Project02;
 
 import Project02.People;
 import Project02.PeopleType;
-
-import java.util.Random;
+import Project02.Dice;
 
 /**
  * Strategy for the warrior person type.
@@ -13,8 +12,8 @@ import java.util.Random;
  * Author: Richie Glennon
  */
 public class RichieWarrior2 extends People {
-    Random r = new Random();
-
+    Dice dice = new Dice(20);
+    
     /**
      * Create a RichieWarrior2 object
      *
@@ -30,7 +29,7 @@ public class RichieWarrior2 extends People {
 
     /**
      * Called when otherPerson is from another nation.
-     * against a healer does from 40 - 20 damage, against a wizard does from 30 - to damage
+     * against a healer does from 40 - 20 damage, against a wizard does from 30 - 10 damage
      * and against a warrior does 20 - 0 damage
      *
      * @param otherPerson the other person encountered
@@ -38,11 +37,11 @@ public class RichieWarrior2 extends People {
      */
     public int encounterUgly(People otherPerson) {
         if (otherPerson.getType() == PeopleType.healer)
-            return r.nextInt((40 - 20) + 1) + 20;
+            return (dice.roll()+ 1) + 20;
         else if (otherPerson.getType() == PeopleType.wizard)
-            return r.nextInt((30 - 10) + 1) + 10;
+            return (dice.roll()+ 1) + 10;
         else
-            return r.nextInt((20 - 1) + 1) + 1;
+            return (dice.roll()+ 1) + 1;
 
 
     }
