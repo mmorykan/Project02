@@ -26,6 +26,8 @@ public abstract class People {
     private int myLifePoints;
     public static final int MAX_LIFE_POINTS = 100;
     private boolean dead;
+    private boolean isInvisible;
+    private int damageBoost;
 
     /**
      * Create a person.
@@ -42,6 +44,24 @@ public abstract class People {
         myDescription = me.getDescription();
         myLifePoints = lifePoints;
         dead = false;
+        isInvisible = false;
+        damageBoost = 0;
+    }
+
+    public boolean getInvisible() {
+        return isInvisible;
+    }
+
+    public void setInvisible(boolean isInvisible) {
+        this.isInvisible = isInvisible;
+    }
+
+    public int getDamageBoost() {
+        return damageBoost;
+    }
+
+    public void setDamageBoost(int damageBoost) {
+        this.damageBoost = damageBoost;
     }
 
     /**
