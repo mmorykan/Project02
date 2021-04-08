@@ -81,7 +81,7 @@ public class World {
         allNations.add(new Nation("Richie's Nation", (worldLifePoints) / NUMBER_OF_NATIONS));
         allNations.add(new Nation("Mark's Nation", (worldLifePoints) / NUMBER_OF_NATIONS));
         allNations.add(new Nation("Kyle's Nation", (worldLifePoints) / NUMBER_OF_NATIONS));
-        allNations.add(new SpecialNation("Special Nation", worldLifePoints));
+        allNations.add(new SpecialNation("Special Nation", 6));
     }
 
 
@@ -156,18 +156,28 @@ public class World {
         else if(player1.getNation().equals("Special Nation")){
             player1.encounterSpecial(player2);
             player1.modifyLifePoints(-1);
-            player2.modifyLifePoints(-1);
             return;
         }
         else if(player2.getNation().equals("Special Nation")){
-            player2.encounterSpecial(player1);
-            player1.modifyLifePoints(-1);
+            player1.encounterSpecial(player2);
             player2.modifyLifePoints(-1);
             return;
         }
         else {
-            person1LifePointsToUse = player1.encounterUgly(player2);
-            person2LifePointsToUse = player2.encounterUgly(player1);
+            if(player1.getInvisible()) {
+                person2LifePointsToUse = 0;
+                person1LifePointsToUse = player1.encounterUgly(player2);
+                player1.setInvisible(false);
+            }
+            else if(player2.getInvisible()) {
+                person1LifePointsToUse = 0;
+                person2LifePointsToUse = player2.encounterUgly(player1);
+                player2.setInvisible(false);
+            }
+            else {
+                person1LifePointsToUse = player1.encounterUgly(player2) + player1.getDamageBoost();
+                person2LifePointsToUse = player2.encounterUgly(player1) + player1.getDamageBoost();
+            }
         }
 
         // amount of life points actually used is subject to a pseudo-random encounter

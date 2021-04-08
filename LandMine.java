@@ -2,8 +2,8 @@ package Project02;
 
 public class LandMine extends People{
 
-    public LandMine(String nation, String tribe, int lifePoints) {
-        super(nation, tribe, PeopleType.special, lifePoints);
+    public LandMine(int lifePoints) {
+        super("Special Nation", "Special Tribe", PeopleType.special, lifePoints);
         myDescription = "\tLand Mine";
     }
 
@@ -19,10 +19,10 @@ public class LandMine extends People{
 
     @Override
     public int encounterSpecial(People otherPerson) {
+        otherPerson.setDead();
+        otherPerson.modifyLifePoints(-100);
         return 0;
     }
 
-    public int doAction(){
-        return 10;
-    }
+
 }

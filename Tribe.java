@@ -11,8 +11,7 @@ import java.io.StringBufferInputStream;
 
 import Project02.People;
 import Project02.PeopleType;
-import Project02.SchaperWarrior;
-import Project02.SchaperWizard;
+
 
 /**
  * The Tribe Class. Adds people to a tribe and adds the tribe to a nation.

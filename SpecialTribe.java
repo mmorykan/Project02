@@ -20,8 +20,9 @@ public class SpecialTribe extends Tribe {
         tribeLifePoints = lifePoints;
         random = new Random();
 
-        List<People> people = Arrays.asList(
-
+        List<People> people = Arrays.asList(new MrMiyagi(2),
+                new LandMine(2),
+                new StealthCloak(2)
         );
 
         members.addAll(people);

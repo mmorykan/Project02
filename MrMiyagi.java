@@ -2,8 +2,8 @@ package Project02;
 
 public class MrMiyagi extends People{
 
-    public MrMiyagi(String nation, String tribe, int lifePoints) {
-        super(nation, tribe, PeopleType.special, lifePoints);
+    public MrMiyagi(int lifePoints) {
+        super("Special Nation", "Special Tribe", PeopleType.special, lifePoints);
         myDescription = "\tMr Miyagi";
     }
 
@@ -22,7 +22,4 @@ public class MrMiyagi extends People{
         return 0;
     }
 
-    public int doAction(){
-        return 10;
-    }
 }
