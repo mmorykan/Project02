@@ -150,12 +150,17 @@ public class World {
         if (player1.getNation().equals(player2.getNation())) {
             person1LifePointsToUse = player1.encounterFriendly(player2);
             person2LifePointsToUse = player2.encounterFriendly(player1);
-        } else if(player1.getNation().equals("Special Nation")){
+        } else if(player1.getNation().equals("Special Nation") && player2.getNation().equals("Special Nation")){
+            return;
+        }
+        else if(player1.getNation().equals("Special Nation")){
             player2.encounterSpecial(player1);
+            player1.modifyLifePoints(-1);
             return;
         }
         else if(player2.getNation().equals("Special Nation")){
             player1.encounterSpecial(player2);
+            player2.modifyLifePoints(-1);
             return;
         }
         else {
@@ -164,13 +169,13 @@ public class World {
         }
 
         // amount of life points actually used is subject to a pseudo-random encounter
-        int p1damage = (int) (new Dice(person1LifePointsToUse).roll());
-        int p2damage = (int) (new Dice(person2LifePointsToUse).roll());
+        int p1damage = new Dice(person1LifePointsToUse).roll();
+        int p2damage = new Dice(person2LifePointsToUse).roll();
 
         // person 1  and person 2 are fighting and inflicting damage
         if (p1damage > 0 && p2damage > 0) {
-            p2damage = (int) (new Dice(p1damage).roll());
-            p1damage = (int) (new Dice(p2damage).roll());
+            p2damage = new Dice(p1damage).roll();
+            p1damage = new Dice(p2damage).roll();
         }
 
         // record the damage: positive damage should be subtracted for persons lifePoint
@@ -217,7 +222,6 @@ public class World {
      */
     public void playOneRound(ArrayList<Integer> combatants) {
         System.out.println(combatants.size());
-        ArrayList<Integer> survivors = new ArrayList<>();
         int numberOfCombatants;
         Collections.shuffle(combatants);
         numberOfCombatants = combatants.size() - 1;
