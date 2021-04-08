@@ -154,12 +154,14 @@ public class World {
             return;
         }
         else if(player1.getNation().equals("Special Nation")){
-            player2.encounterSpecial(player1);
+            player1.encounterSpecial(player2);
             player1.modifyLifePoints(-1);
+            player2.modifyLifePoints(-1);
             return;
         }
         else if(player2.getNation().equals("Special Nation")){
-            player1.encounterSpecial(player2);
+            player2.encounterSpecial(player1);
+            player1.modifyLifePoints(-1);
             player2.modifyLifePoints(-1);
             return;
         }
