@@ -60,8 +60,8 @@ public abstract class People {
         return damageBoost;
     }
 
-    public void setDamageBoost(int damageBoost) {
-        this.damageBoost = damageBoost;
+    public void addDamageBoost(int damageBoost) {
+        this.damageBoost += damageBoost;
     }
 
     /**

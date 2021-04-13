@@ -1,6 +1,6 @@
 package Project02;
 
-public class LandMine extends People{
+public class LandMine extends People {
 
     public LandMine(int lifePoints) {
         super("Special Nation", "Special Tribe", PeopleType.special, lifePoints);

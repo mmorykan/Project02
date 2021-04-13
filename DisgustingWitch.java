@@ -1,10 +1,10 @@
 package Project02;
 
-public class MrMiyagi extends People {
+public class DisgustingWitch extends People {
 
-    public MrMiyagi(int lifePoints) {
+    public DisgustingWitch(int lifePoints) {
         super("Special Nation", "Special Tribe", PeopleType.special, lifePoints);
-        myDescription = "\tMr Miyagi";
+        myDescription = "\tDisgusting Witch";
     }
 
     @Override
@@ -19,7 +19,7 @@ public class MrMiyagi extends People {
 
     @Override
     public int encounterSpecial(People otherPerson) {
-        otherPerson.addDamageBoost(10);
+        otherPerson.addDamageBoost(-10);
         return 0;
     }
 
