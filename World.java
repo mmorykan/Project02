@@ -81,7 +81,7 @@ public class World {
         allNations.add(new Nation("Richie's Nation", (worldLifePoints) / NUMBER_OF_NATIONS));
         allNations.add(new Nation("Mark's Nation", (worldLifePoints) / NUMBER_OF_NATIONS));
         allNations.add(new Nation("Kyle's Nation", (worldLifePoints) / NUMBER_OF_NATIONS));
-        allNations.add(new SpecialNation("Special Nation", 6));
+        allNations.add(new SpecialNation("Special Nation", 10));
     }
 
 
