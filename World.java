@@ -144,7 +144,7 @@ public class World {
         String resetColor = "\u001B[0m";
 
         // Print the encounter
-        System.out.println("Encounter: " + getPlayerColor(player1Nation) + player1 + getPlayerColor(player2Nation) + player2 + resetColor);
+        System.out.println("Encounter: " + getPlayerColor(player1Nation) + player1 + resetColor + getPlayerColor(player2Nation) + player2 + resetColor);
 
         // if lifePointsToUse is negative, then person is giving life points to another person from same nation
         if (player1.getNation().equals(player2.getNation())) {
@@ -159,7 +159,7 @@ public class World {
             return;
         }
         else if(player2.getNation().equals("Special Nation")){
-            player1.encounterSpecial(player2);
+            player2.encounterSpecial(player1);
             player2.modifyLifePoints(-1);
             return;
         }

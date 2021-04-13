@@ -19,7 +19,7 @@ public class FountainOfHealing extends People {
 
     @Override
     public int encounterSpecial(People otherPerson) {
-        otherPerson.modifyLifePoints(+30);
+        otherPerson.modifyLifePoints(30);
         return 0;
     }
 
