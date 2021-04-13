@@ -19,6 +19,7 @@ public class MrMiyagi extends People{
 
     @Override
     public int encounterSpecial(People otherPerson) {
+        otherPerson.setDamageBoost(10);
         return 0;
     }
 
