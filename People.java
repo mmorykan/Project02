@@ -108,6 +108,15 @@ public abstract class People {
     }
 
     /**
+     * Getter for character's Nation.
+     *
+     */
+    public void setNation(String nation) {
+        myNation = nation;
+    }
+
+
+    /**
      * Determine if the person's life points is greater than 0.
      *
      * @return Boolean determining if the person is still alive.
