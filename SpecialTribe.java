@@ -24,7 +24,8 @@ public class SpecialTribe extends Tribe {
                 new LandMine(2),
                 new StealthCloak(2),
                 new DisgustingWitch(2),
-                new FountainOfHealing(2)
+                new FountainOfHealing(2),
+                new SwingMaster(2)
         );
 
         members.addAll(people);
