@@ -4,7 +4,7 @@
 Read the WarringNationsGame.docx file for rules of the game.
 File UML Diagram.pdf has a UML diagram for the current state of the repository software.
 
-##To Play
+## To Play
 
 Run Main
 
