@@ -1,4 +1,10 @@
 # Project02
+#### Mark Morykan, Kyle Schaedler, Richie Glennon
 
 Read the WarringNationsGame.docx file for rules of the game.
-File WarringNations02.pdf has a UML diagram for the current state of the repository software.
+File UML Diagram.pdf has a UML diagram for the current state of the repository software.
+
+##To Play
+
+Run Main
+
