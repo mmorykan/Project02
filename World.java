@@ -259,19 +259,12 @@ public class World {
         int combatantIndex = 0;
         encounterNumber = 0;
         while (combatantIndex < numberOfCombatants) {
-
             if (gui.getPlayNext()) {
                 encounterNumber++;
                 encounter(combatants.get(combatantIndex), combatants.get(combatantIndex + 1));
-//                try {
-//                    System.in.read();
-//                } catch (Exception e) {
-//                }
                 combatantIndex += 2;
                 gui.setPlayNext(false);
             }
         }
     }
-
-
 }

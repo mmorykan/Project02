@@ -11,22 +11,20 @@ import java.util.Random;
 
 public class GUI implements KeyListener {
 
+    public volatile boolean playNextEncounter;
     JFrame frame;
     JTextPane roundPane;
     ArrayList<JTextPane> panes;
     List<String> fields = Arrays.asList("Character Name: ", "Nation Name: ", "Tribe Name: ",
             "Life Points: ", "Damage Dealt: ");
-    List<String> randomNames = Arrays.asList("Mark", "Richie", "Kyle");
-    Random r;
-    int roundNum = 0;
-    public boolean playNextEncounter = true;
+
 
     public GUI() {
         frame = new JFrame("Warring Nations");
         panes = new ArrayList<>();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1000, 1000);
-        r = new Random();
+        playNextEncounter = false;
 
         JPanel mainPanel = new JPanel(new GridLayout(6,1));
         roundPane = createTextPane("Press right arrow to play game!");
