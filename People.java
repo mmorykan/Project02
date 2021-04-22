@@ -115,6 +115,10 @@ public abstract class People {
         myNation = nation;
     }
 
+    public String getMyDescription(){
+        return myDescription;
+    }
+
 
     /**
      * Determine if the person's life points is greater than 0.
