@@ -24,10 +24,13 @@ public class World {
     private final int numberOfRounds = 50;
     private ArrayList<Nation> allNations = new ArrayList<>();
     private ArrayList<Nation> allLivingNations = new ArrayList<>();
+    public GUI gui;
 
 
 //    Random generator;
     ArrayList<People> worldCreatedPeople = new ArrayList<>();
+    private int roundNumber;
+    private int encounterNumber;
 
 
     public World() {
@@ -36,6 +39,7 @@ public class World {
 //        generator = new Random(seed.getTime());
         createWorld();
         worldCreatedPeople.addAll(getWorldCreatedPopulation());
+        gui = new GUI();
     }
 
     /**
@@ -49,6 +53,7 @@ public class World {
         ArrayList<Integer> worldSurvivingPeople = new ArrayList<>();
 
         for (int round = 1; round < numberOfRounds; round++) {
+            roundNumber = round;
             System.out.println("Round number: " + round);
             worldSurvivingPeople.clear();
             worldSurvivingPeople.addAll(getWorldSurvivingPeople());
@@ -81,7 +86,7 @@ public class World {
         allNations.add(new Nation("Richie's Nation", (worldLifePoints) / NUMBER_OF_NATIONS));
         allNations.add(new Nation("Mark's Nation", (worldLifePoints) / NUMBER_OF_NATIONS));
         allNations.add(new Nation("Kyle's Nation", (worldLifePoints) / NUMBER_OF_NATIONS));
-        allNations.add(new SpecialNation("Special Nation", 10));
+        allNations.add(new SpecialNation("Special Nation", 12));
     }
 
 
@@ -146,21 +151,31 @@ public class World {
         // Print the encounter
         System.out.println("Encounter: " + getPlayerColor(player1Nation) + player1 + resetColor + getPlayerColor(player2Nation) + player2 + resetColor);
 
+        List<String> peoplethings = Arrays.asList(
+                player1.getMyDescription(), player2.getMyDescription(),
+                player1.getNation(), player2.getNation(),
+                player1.getTribe(), player2.getTribe(),
+                Integer.toString(player1.getLifePoints()), Integer.toString(player2.getLifePoints()),
+                "0", "0");
+
         // if lifePointsToUse is negative, then person is giving life points to another person from same nation
         if (player1.getNation().equals(player2.getNation())) {
             person1LifePointsToUse = player1.encounterFriendly(player2);
             person2LifePointsToUse = player2.encounterFriendly(player1);
         } else if(player1.getNation().equals("Special Nation") && player2.getNation().equals("Special Nation")){
+            gui.updateUI(roundNumber, encounterNumber, peoplethings);
             return;
         }
         else if(player1.getNation().equals("Special Nation")){
             player1.encounterSpecial(player2);
             player1.modifyLifePoints(-1);
+            gui.updateUI(roundNumber, encounterNumber, peoplethings);
             return;
         }
         else if(player2.getNation().equals("Special Nation")){
             player2.encounterSpecial(player1);
             player2.modifyLifePoints(-1);
+            gui.updateUI(roundNumber, encounterNumber, peoplethings);
             return;
         }
         else {
@@ -194,6 +209,10 @@ public class World {
         // negative damage is added to persons life points
         player1.modifyLifePoints((-p2damage));
         player2.modifyLifePoints((-p1damage));
+        peoplethings.set(8, Integer.toString(p1damage));
+        peoplethings.set(9, Integer.toString(p2damage));
+        gui.updateUI(roundNumber, encounterNumber, peoplethings);
+
 
         int player1LifePoints = player1.getLifePoints();
         int player2LifePoints = player2.getLifePoints();
@@ -238,8 +257,12 @@ public class World {
         Collections.shuffle(combatants);
         numberOfCombatants = combatants.size() - 1;
         int combatantIndex = 0;
+        encounterNumber = 0;
         while (combatantIndex < numberOfCombatants) {
+            encounterNumber++;
             encounter(combatants.get(combatantIndex), combatants.get(combatantIndex + 1));
+            try{System.in.read();}
+            catch(Exception e){}
             combatantIndex += 2;
         }
     }
