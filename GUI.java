@@ -72,11 +72,12 @@ public class GUI implements KeyListener {
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             System.out.println("pressed right arrow key");
-            ArrayList<String> names = new ArrayList<>();
-            ArrayList<Integer> points = new ArrayList<>();
-            for (int i = 0; i < 6; i++) names.add(randomNames.get(r.nextInt(3)));
-            for (int i = 0; i < 4; i++) points.add(r.nextInt(100));
-            updateUI(++roundNum, names, points);
+//            ArrayList<String> names = new ArrayList<>();
+//            ArrayList<Integer> points = new ArrayList<>();
+//            for (int i = 0; i < 6; i++) names.add(randomNames.get(r.nextInt(3)));
+//            for (int i = 0; i < 4; i++) points.add(r.nextInt(100));
+//            updateUI(++roundNum, names, points);
+
         }
     }
 
@@ -85,20 +86,26 @@ public class GUI implements KeyListener {
         System.out.println("Key released");
     }
 
-    void updateUI(int roundNum, ArrayList<String> names, ArrayList<Integer> points) {
-        roundPane.setText("<h1 style=\"text-align: center\"> Round: " + roundNum + "</h1>");
+    void updateUI(int roundNum, int encounterNum, ArrayList<String> info) {
+        roundPane.setText("<h1 style=\"text-align: center\"> Encounter: " + encounterNum + " of Round: " + roundNum + "</h1>");
+
         int pointIndex = 0;
         for (int i = 0; i < fields.size(); i++) {
             JTextPane pane1 = panes.get(i*2), pane2 = panes.get(i*2+1);
             String field = fields.get(i);
-            if (i < 3) {
-                pane1.setText("<h1 style=\"text-align: center\">" + field + names.get(i * 2) + "</h1>");
-                pane2.setText("<h1 style=\"text-align: center\">" + field + names.get(i * 2 + 1) + "</h1>");
-            } else {
-                pane1.setText("<h1 style=\"text-align: center\">" + field + points.get(pointIndex) + "</h1>");
-                pane2.setText("<h1 style=\"text-align: center\">" + field + points.get(pointIndex + 1) + "</h1>");
-                pointIndex += 2;
-            }
+//            if (i < 4) {
+            pane1.setText("<h1 style=\"text-align: center\">" + field + info.get(i * 2) + "</h1>");
+            pane2.setText("<h1 style=\"text-align: center\">" + field + info.get(i * 2 + 1) + "</h1>");
+//            } else {
+//                pane1.setText("<h1 style=\"text-align: center\">" + field + points.get(pointIndex) + "</h1>");
+//                pane2.setText("<h1 style=\"text-align: center\">" + field + points.get(pointIndex + 1) + "</h1>");
+//                pointIndex += 2;
+//            }
         }
+//        for (int i = 0; i < fields.size(); i++) {
+//            JTextPane pane1 = panes.get(i * 2), pane2 = panes.get(i * 2 + 1);
+//            String field = fields.get(i);
+//            if (i == 0) pane1.setText();
+//        }
     }
 }
