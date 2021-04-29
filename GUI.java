@@ -97,7 +97,8 @@ public class GUI implements KeyListener {
     }
 
     void updateUIGameEnded(Set<String> nationName){
-        roundPane.setText("<h1 style=\"text-align: center\">" + "Winning Nation is: " + nationName.toString() + "</h1>");
+        roundPane.setText("<h1 style=\"text-align: center\">" + "Winning Nation is: " + nationName.toString() + "</h1>"
+        + "<h1 style=\"text-align: center\">" + "Close window to quit" + "<h1>");
         for (int i = 0; i < fields.size(); i++) {
             JTextPane pane1 = panes.get(i * 2), pane2 = panes.get(i * 2 + 1);
             pane1.setText("<h1 style=\"text-align: center\">" + "\n"  + "</h1>");
