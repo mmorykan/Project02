@@ -67,7 +67,7 @@ public class World {
                 } else {
                     System.out.println(survivingNations);
                     System.out.println("The survivors are:");
-
+                    gui.updateUIGameEnded(survivingNations);
                     for (Integer worldSurvivingPerson : worldSurvivingPeople) {
                         System.out.println(getPlayerColor(worldCreatedPeople.get(worldSurvivingPerson).getNation()) + worldCreatedPeople.get(worldSurvivingPerson) + resetColor);
                     }

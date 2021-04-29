@@ -4,10 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 import java.util.List;
-import java.util.Random;
 
 public class GUI implements KeyListener {
 
@@ -95,6 +93,15 @@ public class GUI implements KeyListener {
             String field = fields.get(i);
             pane1.setText("<h1 style=\"text-align: center\">" + field + info.get(i * 2) + "</h1>");
             pane2.setText("<h1 style=\"text-align: center\">" + field + info.get(i * 2 + 1) + "</h1>");
+        }
+    }
+
+    void updateUIGameEnded(Set<String> nationName){
+        roundPane.setText("<h1 style=\"text-align: center\">" + "Winning Nation is: " + nationName.toString() + "</h1>");
+        for (int i = 0; i < fields.size(); i++) {
+            JTextPane pane1 = panes.get(i * 2), pane2 = panes.get(i * 2 + 1);
+            pane1.setText("<h1 style=\"text-align: center\">" + "\n"  + "</h1>");
+            pane2.setText("<h1 style=\"text-align: center\">" + "\n" + "</h1>");
         }
     }
 }
