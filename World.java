@@ -191,7 +191,7 @@ public class World {
             }
             else {
                 person1LifePointsToUse = player1.encounterUgly(player2) + player1.getDamageBoost();
-                person2LifePointsToUse = player2.encounterUgly(player1) + player1.getDamageBoost();
+                person2LifePointsToUse = player2.encounterUgly(player1) + player2.getDamageBoost();
             }
         }
 
