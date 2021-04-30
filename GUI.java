@@ -7,8 +7,12 @@ import java.awt.event.KeyListener;
 import java.util.*;
 import java.util.List;
 
+/**
+ * Gui representing how a user plays the game
+ */
 public class GUI implements KeyListener {
 
+    /** Encounter boolean to further the next encounter or round */
     public volatile boolean playNextEncounter;
     JFrame frame;
     JTextPane roundPane;
@@ -17,6 +21,10 @@ public class GUI implements KeyListener {
             "Life Points: ", "Damage Dealt: ");
 
 
+    /**
+     * Create the JFrame, set the size, and set the default panes.
+     * Set the key listener and focus the frame
+     */
     public GUI() {
         frame = new JFrame("Warring Nations");
         panes = new ArrayList<>();
@@ -43,6 +51,11 @@ public class GUI implements KeyListener {
         frame.setVisible(true);
     }
 
+    /**
+     * Adds two of the same text panes to the main panel for both players in the game
+     * @param panel  The panel to add the panes to
+     * @param text  The text to go in the pane
+     */
     private void addTextFields(JPanel panel, String text) {
         JTextPane pane = createTextPane(text);
         panel.add(pane);
@@ -52,6 +65,11 @@ public class GUI implements KeyListener {
         panes.add(pane);
     }
 
+    /**
+     * Create a default text pane that isn't editable using html for centering
+     * @param text  The text to put on the pane
+     * @return The created JTextPane
+     */
     private JTextPane createTextPane(String text) {
         JTextPane pane = new JTextPane();
         pane.setContentType("text/html");
@@ -60,11 +78,19 @@ public class GUI implements KeyListener {
         return pane;
     }
 
+    /**
+     * Need to implement but don't need to use
+     * @param e Key event
+     */
     @Override
     public void keyTyped(KeyEvent e) {
-        System.out.println("key typed");
+
     }
 
+    /**
+     * If the right arrow key is pressed, the game is furthered
+     * @param e Key event
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
@@ -72,6 +98,7 @@ public class GUI implements KeyListener {
             setPlayNext(true);
         }
     }
+
 
     public void setPlayNext(boolean playNext) {
         playNextEncounter = playNext;
@@ -81,11 +108,21 @@ public class GUI implements KeyListener {
         return playNextEncounter;
     }
 
+    /**
+     * Need to implement but don't need to use
+     * @param e Key event
+     */
     @Override
     public void keyReleased(KeyEvent e) {
-        System.out.println("Key released");
+
     }
 
+    /**
+     * Update all text panes with the correct info based on the current encounter
+     * @param roundNum The current round number
+     * @param encounterNum The current encounter number for this round
+     * @param info The text to display in the panes
+     */
     void updateUI(int roundNum, int encounterNum, List<String> info) {
         roundPane.setText("<h1 style=\"text-align: center\"> Encounter: " + encounterNum + " of Round: " + roundNum + "</h1>");
         for (int i = 0; i < fields.size(); i++) {
@@ -96,6 +133,10 @@ public class GUI implements KeyListener {
         }
     }
 
+    /**
+     * Displays the final screen for who won the game
+     * @param nationName The nation that won the game
+     */
     void updateUIGameEnded(Set<String> nationName){
         roundPane.setText("<h1 style=\"text-align: center\">" + "Winning Nation is: " + nationName.toString() + "</h1>"
         + "<h1 style=\"text-align: center\">" + "Close window to quit" + "<h1>");
